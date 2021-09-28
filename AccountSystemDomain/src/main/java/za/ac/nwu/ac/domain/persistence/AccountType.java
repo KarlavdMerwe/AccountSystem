@@ -21,10 +21,6 @@ public class AccountType implements Serializable {
     private LocalDate creationDate;
 
     private Set<AccountTransaction> accountTransaction;
-    //@JsonSerialize(using = LocalDateSerializer.class)
-    //@JsonDeserialize(using = LocalDateDezerializer.class)
-
-
 
     public AccountType(Long accountTypeId, String mnemonic, String accountTypeName, LocalDate creationDate) {
         this.accountTypeId = accountTypeId;
@@ -55,7 +51,7 @@ public class AccountType implements Serializable {
         return creationDate;
     }
     @OneToMany(targetEntity = AccountTransaction.class, fetch = FetchType.LAZY, mappedBy = "accountType", orphanRemoval = true, cascade = CascadeType.PERSIST)
-    public Set<AccountTransaction> getAccountTranscation(){
+    public Set<AccountTransaction> getAccountTransaction(){
         return accountTransaction;
     }
 

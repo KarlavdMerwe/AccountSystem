@@ -33,7 +33,7 @@ public class AccountTransaction implements Serializable {
     @Id
     @SequenceGenerator(name = "NWU_GENERIC_SEQ", sequenceName = "HR.NWU_GENERIC_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NWU_GENERIC_SEQ")
-    @Column(name = "Transc_ID")
+    @Column(name = "TX_ID")
     public Long getTransactionId() {
         return transactionId;
     }
@@ -48,7 +48,7 @@ public class AccountTransaction implements Serializable {
         return amount;
     }
 
-    @Column(name = "Transc_DATE")
+    @Column(name = "TX_DATE")
     public LocalDate getTransactionDate() {
         return transactionDate;
     }
