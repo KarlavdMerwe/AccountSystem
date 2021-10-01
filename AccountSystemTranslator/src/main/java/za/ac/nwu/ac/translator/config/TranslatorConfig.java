@@ -14,9 +14,9 @@ public class TranslatorConfig {
     //AccountTypeRepository accountTypeRepository;
 
     //@Autowired
-    //public TranslatorConfig(AccountTypeRepository accountTypeRepository)
+   // public TranslatorConfig(AccountTypeRepository accountTypeRepository)
     //{
-     //   this.accountTypeRepository = accountTypeRepository;
+    //    this.accountTypeRepository = accountTypeRepository;
     //}
 
 }
