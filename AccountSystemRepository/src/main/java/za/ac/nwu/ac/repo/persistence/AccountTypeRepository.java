@@ -19,6 +19,7 @@ public interface AccountTypeRepository extends JpaRepository<AccountType, Long> 
             "   WHERE MNEMONIC = :mnemonic ", nativeQuery = true)
     AccountType getAccountTypeByMnemonicNativeQuery(String mnemonic);
 
+    //Useful when pulling data from single table
     @Query(value = "SELECT " +
             "       at" +
             "   FROM" +
@@ -26,6 +27,7 @@ public interface AccountTypeRepository extends JpaRepository<AccountType, Long> 
             "   WHERE at.mnemonic = :mnemonic ")
     AccountType getAccountTypeByMnemonic(String mnemonic);
 
+    //Useful when pulling data from multiple tables
     @Query(value = "SELECT new za.ac.nwu.ac.domain.dto.AccountTypeDto( " +
             "       at.mnemonic," +
             "       at.accountTypeName," +
