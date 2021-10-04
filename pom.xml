@@ -86,11 +86,6 @@
             </exclusions>
         </dependency>
 
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
-                <version>5.3.2</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -108,8 +103,8 @@
 
 
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
