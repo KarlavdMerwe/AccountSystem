@@ -11,12 +11,4 @@ import za.ac.nwu.ac.repo.persistence.AccountTypeRepository;
 @Configuration
 @ComponentScan(basePackages = {"za.ac.nwu.ac.translator"})
 public class TranslatorConfig {
-    //AccountTypeRepository accountTypeRepository;
-
-    //@Autowired
-   // public TranslatorConfig(AccountTypeRepository accountTypeRepository)
-    //{
-    //    this.accountTypeRepository = accountTypeRepository;
-    //}
-
 }

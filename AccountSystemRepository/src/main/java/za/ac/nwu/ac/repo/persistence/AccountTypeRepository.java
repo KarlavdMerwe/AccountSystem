@@ -15,7 +15,7 @@ public interface AccountTypeRepository extends JpaRepository<AccountType, Long> 
             "       CREATION_DATE," +
             "       MNEMONIC" +
             "   FROM" +
-            "       VITRSA_SANDBOX.DEMO_ACCOUNT_TYPE " +
+            "       ACCOUNT_TYPE " +
             "   WHERE MNEMONIC = :mnemonic ", nativeQuery = true)
     AccountType getAccountTypeByMnemonicNativeQuery(String mnemonic);
 
