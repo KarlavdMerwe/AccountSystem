@@ -15,7 +15,7 @@ import java.util.Set;
 )
 
 public class AccountTypeDto implements Serializable {
-    private static long serialVersionUID = -5346853206480289868L;
+    private static long serialVersionUID = 5346853206480289868L;
 
     private String mnemonic;
     private String accountTypeName;
