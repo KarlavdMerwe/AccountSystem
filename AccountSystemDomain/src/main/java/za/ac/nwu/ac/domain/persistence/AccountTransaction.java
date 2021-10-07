@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "ACCOUNT_TYPE_TX")
 public class AccountTransaction implements Serializable {
-    private static final long serialVersionUID = 5320578342102714156L;
+    private static final long serialVersionUID = -1420294317019175746L;
 
 //    @Id
 //    @SequenceGenerator(name = "VIT_RSA_GENERIC_SEQ", sequenceName = "VITRSA_SANDBOX.VIT_RSA_GENERIC_SEQ", allocationSize = 1)
@@ -19,6 +19,8 @@ public class AccountTransaction implements Serializable {
     private Long memberId;
     private Long amount;
     private LocalDate transactionDate;
+
+    private AccountTransactionDetails details;
 
     public AccountTransaction() {
     }
@@ -59,6 +61,11 @@ public class AccountTransaction implements Serializable {
         return accountType;
     }
 
+    @OneToOne(targetEntity = AccountTransactionDetails.class, fetch = FetchType.LAZY, mappedBy = "accountTransaction", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    public AccountTransactionDetails getDetails(){
+        return details;
+    }
+
     public void setTransactionId(Long transactionId) {
         this.transactionId = transactionId;
     }
@@ -78,6 +85,8 @@ public class AccountTransaction implements Serializable {
     public void setTransactionDate(LocalDate transactionDate) {
         this.transactionDate = transactionDate;
     }
+
+    public void setDetails(AccountTransactionDetails details) { this.details = details; }
 
     @Override
     public boolean equals(Object o) {
