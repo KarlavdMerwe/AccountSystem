@@ -1,7 +1,10 @@
 package za.ac.nwu.ac.domain.persistence;
 
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 import javax.persistence.*;
 import java.io.Serializable;
+
 
 @Entity
 @Table(name = "ACCOUNT_TX_DETAILS")

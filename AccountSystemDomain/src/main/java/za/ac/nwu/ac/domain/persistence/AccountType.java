@@ -28,6 +28,9 @@ public class AccountType implements Serializable {
         this.creationDate = creationDate;
     }
 
+    @Id
+    @SequenceGenerator(name = "AS_GENERIC_SEQ", sequenceName = "AS_GENERIC_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AS_GENERIC_SEQ")
     @Column(name = "ACCOUNT_TYPE_ID")
     public Long getAccountTypeId() {
         return accountTypeId;
