@@ -7,11 +7,13 @@ import za.ac.nwu.ac.logic.flow.FetchAccountTransactionFlow;
 import za.ac.nwu.ac.logic.flow.FetchAccountTypeFlow;
 import za.ac.nwu.ac.translator.AccountTransactionTranslator;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+@Transactional
 @Component
-public class FetchAccountTransactionFlowImpl implements FetchAccountTypeFlow {
+public class FetchAccountTransactionFlowImpl implements FetchAccountTransactionFlow {
 
     private AccountTransactionTranslator translator;
 
@@ -27,12 +29,19 @@ public class FetchAccountTransactionFlowImpl implements FetchAccountTypeFlow {
         return accountTransactionDtos;
     }
 
+//    @Override
+//    public AccountTransactionDto getAccountTransactionById(Long transactionId) {
+//        return null;
+//    }
+
     @Override
     public AccountTransactionDto getAccountTransactionById(Long transactionID)
     {
         AccountTransaction accountTransaction = translator.getAccountTransactionByPk(transactionID);
         return null != accountTransaction ? new AccountTransactionDto(accountTransaction) : null;
     }
+
+
 
 
 }

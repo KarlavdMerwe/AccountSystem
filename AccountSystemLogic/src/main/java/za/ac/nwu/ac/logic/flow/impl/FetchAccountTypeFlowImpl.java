@@ -2,7 +2,9 @@ package za.ac.nwu.ac.logic.flow.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import za.ac.nwu.ac.domain.dto.AccountTransactionDto;
 import za.ac.nwu.ac.domain.dto.AccountTypeDto;
+import za.ac.nwu.ac.domain.persistence.AccountType;
 import za.ac.nwu.ac.logic.flow.FetchAccountTypeFlow;
 import za.ac.nwu.ac.translator.AccountTypeTranslator;
 
@@ -31,6 +33,12 @@ public class FetchAccountTypeFlowImpl implements FetchAccountTypeFlow {
     public AccountTypeDto getAccountTypeByMnemonic(String mnemonic)
     {
         return accountTypeTranslator.getAccountTypeByMnemonicNativeQuery(mnemonic);
+    }
+
+    @Override
+    public AccountType getAccountTypeDbEntityByMnemonic(String accountTypeMnemonic)
+    {
+        return accountTypeTranslator.getAccountTypeDbEntityByMnemonic(accountTypeMnemonic);
     }
 
     public boolean methodToTest()

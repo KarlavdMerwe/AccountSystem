@@ -10,10 +10,6 @@ import java.util.Objects;
 public class AccountTransaction implements Serializable {
     private static final long serialVersionUID = -1420294317019175746L;
 
-//    @Id
-//    @SequenceGenerator(name = "VIT_RSA_GENERIC_SEQ", sequenceName = "VITRSA_SANDBOX.VIT_RSA_GENERIC_SEQ", allocationSize = 1)
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "VIT_RSA_GENERIC_SEQ")
-
     private Long transactionId;
     private AccountType accountType;//FK
     private Long memberId;
@@ -61,7 +57,7 @@ public class AccountTransaction implements Serializable {
         return accountType;
     }
 
-    @OneToOne(targetEntity = AccountTransactionDetails.class, fetch = FetchType.LAZY, mappedBy = "accountTransaction", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    @OneToOne(targetEntity = AccountTransactionDetails.class, fetch = FetchType.LAZY, mappedBy = "accountTransaction"/*, orphanRemoval = true, cascade = CascadeType.PERSIST*/)
     public AccountTransactionDetails getDetails(){
         return details;
     }

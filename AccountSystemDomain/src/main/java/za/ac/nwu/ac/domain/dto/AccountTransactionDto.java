@@ -46,9 +46,6 @@ public class AccountTransactionDto implements Serializable {
         this.memberId = accountTransaction.getMemberId();
         this.amount = accountTransaction.getAmount();
         this.transactionDate = accountTransaction.getTransactionDate();
-        if(null != accountTransaction.getDetails()){
-            this.details = new AccountTransactionDetailsDto(accountTransaction.getDetails());
-        }
     }
 
     @JsonIgnore
@@ -77,5 +74,4 @@ public class AccountTransactionDto implements Serializable {
 
     public void setTransactionDate(LocalDate transactionDate) {this.transactionDate = transactionDate;}
 
-    public AccountTransactionDetailsDto getDetails() {this.details = details;}
 }

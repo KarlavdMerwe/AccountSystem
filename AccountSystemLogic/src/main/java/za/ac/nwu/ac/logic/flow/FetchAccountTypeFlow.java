@@ -8,12 +8,6 @@ import java.util.List;
 
 public interface FetchAccountTypeFlow {
     List<AccountTypeDto> getAllAccountTypes();
-
     AccountTypeDto getAccountTypeByMnemonic(String mnemonic);
-
-    List<AccountTransactionDto> getAllAccountTransactions();
-
-    AccountTransactionDto getAccountTransactionById(Long transactionID);
-
     AccountType getAccountTypeDbEntityByMnemonic(String accountTypeMnemonic);
 }

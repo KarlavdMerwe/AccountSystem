@@ -10,6 +10,9 @@ import za.ac.nwu.ac.logic.flow.FetchAccountTypeFlow;
 import za.ac.nwu.ac.translator.AccountTransactionDetailsTranslator;
 import za.ac.nwu.ac.translator.AccountTransactionTranslator;
 
+import javax.transaction.Transactional;
+
+@Transactional
 @Component
 public class CreateAccountTransactionFlowImpl implements CreateAccountTransactionFlow {
     private final AccountTransactionTranslator accountTransactionTranslator;
@@ -34,11 +37,8 @@ public class CreateAccountTransactionFlowImpl implements CreateAccountTransactio
 
         AccountTransaction createdAccountTransaction = accountTransactionTranslator.save(accountTransaction);
 
-        if(null != accountTransaction.getDetails()){
-            AccountTransactionDetails accountTransactionDetails = accountTransactionDto.getDetails().buildAccountTransactionDetails(createdAccountTransaction);
-            accountTransactionDetailsTranslator.save(accountTransactionDetails);
-        }
+        AccountTransactionDto results = new AccountTransactionDto(createdAccountTransaction);
 
-        return new AccountTransactionDto(createdAccountTransaction);
+        return results;
     }
 }
