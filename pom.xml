@@ -25,6 +25,8 @@
         <swagger.version>1.5.20</swagger.version>
 
         <java.version>8</java.version>
+
+        <haltOnFailure>false</haltOnFailure>
     </properties>
 
     <modules>
