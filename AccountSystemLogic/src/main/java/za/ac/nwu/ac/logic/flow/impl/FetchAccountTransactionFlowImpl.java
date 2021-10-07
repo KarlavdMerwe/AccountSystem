@@ -4,16 +4,18 @@ import org.springframework.stereotype.Component;
 import za.ac.nwu.ac.domain.dto.AccountTransactionDto;
 import za.ac.nwu.ac.domain.persistence.AccountTransaction;
 import za.ac.nwu.ac.logic.flow.FetchAccountTransactionFlow;
+import za.ac.nwu.ac.logic.flow.FetchAccountTypeFlow;
+import za.ac.nwu.ac.translator.AccountTransactionTranslator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class FetchAccountTransactionFlowImpl {
+public class FetchAccountTransactionFlowImpl implements FetchAccountTypeFlow {
 
     private AccountTransactionTranslator translator;
 
-    public FetchAccountTransactionFlow(AccountTransactionTranslator translator) {this.translator = translator;}
+    public FetchAccountTransactionFlowImpl(AccountTransactionTranslator translator) {this.translator = translator;}
 
     @Override
     public List<AccountTransactionDto> getAllAccountTransactions()

@@ -76,4 +76,6 @@ public class AccountTransactionDto implements Serializable {
     public LocalDate getTransactionDate() {return transactionDate;}
 
     public void setTransactionDate(LocalDate transactionDate) {this.transactionDate = transactionDate;}
+
+    public AccountTransactionDetailsDto getDetails() {this.details = details;}
 }

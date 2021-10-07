@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import za.ac.nwu.ac.domain.dto.AccountTransactionDto;
 import za.ac.nwu.ac.domain.dto.AccountTypeDto;
 import za.ac.nwu.ac.domain.service.GeneralResponse;
+import za.ac.nwu.ac.logic.flow.CreateAccountTransactionFlow;
+import za.ac.nwu.ac.logic.flow.FetchAccountTransactionFlow;
 import za.ac.nwu.ac.logic.flow.FetchAccountTypeFlow;
 
 import java.util.List;
@@ -19,8 +21,8 @@ import java.util.List;
 @RequestMapping("account-transaction")
 public class AccountTransactionController {
 
-    private CreateAccountTransactionFlow createAccountTransactionFlow;
-    private FetchAccountTransactionFlow fetchAccountTransactionFlow;
+    private final CreateAccountTransactionFlow createAccountTransactionFlow;
+    private final FetchAccountTransactionFlow fetchAccountTransactionFlow;
 
     @Autowired
     public AccountTransactionController(CreateAccountTransactionFlow createAccountTransactionFlow, FetchAccountTransactionFlow fetchAccountTransactionFlow)
