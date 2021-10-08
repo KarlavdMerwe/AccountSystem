@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "ACCOUNT_TX_DETAILS")
 public class AccountTransactionDetails implements Serializable {
-    private static final long serialVersionUID = 4562890339977033624L;
+    private static final long serialVersionUID = 8139134688714395795L;
 
     Long accountTransactionDetailsId;
     AccountTransaction accountTransaction;
@@ -61,6 +61,13 @@ public class AccountTransactionDetails implements Serializable {
     }
 
     public void setPartnerName(String partnerName) { this.partnerName = partnerName; }
+
+    public void setNumberOfItems(Long numberOfItems) { this.numberOfItems = numberOfItems; }
+
+    public void setAccountTransactionDetailsId(Long accountTransactionDetailsId)
+    {
+        this.accountTransactionDetailsId = accountTransactionDetailsId;
+    }
 
     public void setAccountTransaction(AccountTransaction accountTransaction) {
         this.accountTransaction = accountTransaction;

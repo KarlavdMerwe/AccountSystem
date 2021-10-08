@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "ACCOUNT_TYPE_TX")
 public class AccountTransaction implements Serializable {
-    private static final long serialVersionUID = -1420294317019175746L;
+    private static final long serialVersionUID = -4196135378504797577L;
 
     private Long transactionId;
     private AccountType accountType;//FK
