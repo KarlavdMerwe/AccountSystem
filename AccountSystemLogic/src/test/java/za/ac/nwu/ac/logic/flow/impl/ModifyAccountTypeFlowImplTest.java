@@ -31,14 +31,6 @@ public class ModifyAccountTypeFlowImplTest {
 
     @Test
     public void deleteAccountTypeTest() {
-//        AccountType accountType = new AccountType("MILES", "Miles", LocalDate.now());
-//        AccountType accountType2 = new AccountType("PLAY", "Play", LocalDate.now());
-//
-//        when(accountTypeRepository.getAccountTypeByMnemonic("MILES")).thenReturn(accountType2);
-//
-//        modifyAccountTypeFlow.deleteAccountType(String.valueOf(accountType));
-//
-//        verify(accountTypeRepository, times(1)).delete(accountType2);
 
     }
 
