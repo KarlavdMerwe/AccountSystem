@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import za.ac.nwu.ac.logic.flow.CreateAccountTransactionFlow;
 import za.ac.nwu.ac.logic.flow.FetchAccountTransactionFlow;
 import za.ac.nwu.ac.logic.flow.FetchAccountTypeFlow;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -64,6 +66,28 @@ public class AccountTransactionController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @GetMapping("/{amount}")
+    @ApiOperation(value = "Fetches the Miles for the specified AccountTransaction", notes = "Fetches the amount of Miles corresponding to the given AccountTransaction")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Miles Amount Returned", response = GeneralResponse.class),
+            @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
+            @ApiResponse(code = 404, message = "Resource Not Found", response = GeneralResponse.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class)
+    })
+    public ResponseEntity<GeneralResponse<AccountTransactionDto>> getAmount(
+        @ApiParam(value = "The amount of Miles of the specific AccountTransaction.",
+                example = "250",
+                name = "Amount",
+                required = true)
+        @PathVariable("amount") final Long amount){
+
+        AccountTransactionDto AccountTransactions = fetchAccountTransactionFlow.getAccountTransactionById(amount);
+
+        GeneralResponse<AccountTransactionDto> response = new GeneralResponse<>(true, AccountTransactions);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
     @GetMapping("/{transactionId}")
     @ApiOperation(value = "Fetches the specified AccountTransaction", notes = "Fetches the AccountTransaction corresponding to the given transactionId")
     @ApiResponses(value = {
@@ -73,11 +97,11 @@ public class AccountTransactionController {
             @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class)
     })
     public ResponseEntity<GeneralResponse<AccountTransactionDto>> getAccountTransaction(
-        @ApiParam(value = "The transactionID that uniquely identifies the AccountTransaction.",
-                example = "5002",
-                name = "transactionID",
-                required = true)
-        @PathVariable("transactionID") final Long transactionID){
+            @ApiParam(value = "The transactionID that uniquely identifies the AccountTransaction.",
+                    example = "5002",
+                    name = "transactionID",
+                    required = true)
+            @PathVariable("transactionID") final Long transactionID){
 
         AccountTransactionDto AccountTransactions = fetchAccountTransactionFlow.getAccountTransactionById(transactionID);
 
@@ -85,5 +109,4 @@ public class AccountTransactionController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
 }
